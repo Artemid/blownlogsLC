@@ -1,0 +1,83 @@
+<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="Frame1.lua" />
+	<Frame name="Frame1" hidden="true" parent="UIParent" toplevel="true" movable="true" enableMouse="true" clampedToScreen="true">
+		<Size>
+			<AbsDimension x="525" y="462" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" relativeTo="UIParent" relativePoint="CENTER" />
+		</Anchors>
+		<TitleRegion setAllPoints="true">
+			<Size>
+				<AbsDimension x="0" y="30" />
+			</Size>
+			<Anchors>
+				<Anchor point="TOPLEFT" />
+				<Anchor point="TOPRIGHT" />
+			</Anchors>
+		</TitleRegion>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="MessageLine" inherits="GameFontNormal" text="FontString1">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="24" y="-325" />
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="ButtonClose" inherits="UIPanelButtonTemplate" text="Close">
+				<Size x="75" y="23" />
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="Frame1" relativePoint="CENTER" x="0" y="-200" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						ButtonClose_OnClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<ScrollFrame name="ItemListScroll" inherits="UIPanelScrollFrameTemplate">
+				<Size x="464" y="200" />
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="CENTER" x="-6" y="109" />
+				</Anchors>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+					<BackgroundInsets>
+						<AbsInset left="11" right="12" top="12" bottom="11" />
+					</BackgroundInsets>
+					<TileSize val="32" />
+					<EdgeSize val="32" />
+				</Backdrop>
+				<ScrollChild>
+					<Frame name="Item_scrollframe_container" intrinsic="true">
+						<Size>
+							<AbsDimension x="300" y="100" />
+						</Size>
+					</Frame>
+				</ScrollChild>
+			</ScrollFrame>
+		</Frames>
+		<Scripts>
+			<OnEvent>
+				Frame1_OnEvent(event, ...)
+			</OnEvent>
+			<OnLoad>
+				self:RegisterEvent("PLAYER_TARGET_CHANGED")
+				print("Frame Load")
+			</OnLoad>
+		</Scripts>
+	</Frame>
+</Ui>

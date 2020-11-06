@@ -1,0 +1,21 @@
+## Interface: 11305
+## Version: 1.0.0
+## Title: BlownLogs loot Council
+
+## Notes: This addon to be used by guild "Blown By Logs" RU server Flamegore
+## Notes-ruRU: Этот аддон создан эксклюзивно для гильдии "Унесенные Логами" сервер Пламегор
+
+## Author: ZooLoo
+## SavedVariables: RaiderStateDB
+## OptionalDeps: Ace3, AceGUI-3.0_SFX-Widgets, LibDBIcon-1.0, LibDualSpec-1.0
+
+# Libraries
+Libs\Libs.xml
+
+# Add-On
+blownlogsLC_libs.lua
+blownlogsLC.lua
+blownlogsLC_core.lua
+loot_prio.lua
+
+Frame1.xml
